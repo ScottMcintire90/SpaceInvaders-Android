@@ -1,11 +1,11 @@
 package com.example.guest.spaceinvaders;
 
-import android.graphics.Paint;
 import android.graphics.RectF;
 
-
+/**
+ * Created by Guest on 7/26/16.
+ */
 public class Bullet {
-
     private float x;
     private float y;
 
@@ -31,7 +31,6 @@ public class Bullet {
 
         rect = new RectF();
     }
-
     public RectF getRect(){
         return  rect;
     }
@@ -52,7 +51,6 @@ public class Bullet {
         }
 
     }
-
     public boolean shoot(float startX, float startY, int direction) {
         if (!isActive) {
             x = startX;
@@ -65,7 +63,6 @@ public class Bullet {
         // Bullet already active
         return false;
     }
-
     public void update(long fps){
 
         // Just move up or down
