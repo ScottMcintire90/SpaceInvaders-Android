@@ -2,9 +2,6 @@ package com.example.guest.spaceinvaders;
 
 import android.graphics.RectF;
 
-/**
- * Created by Guest on 7/26/16.
- */
 public class Bullet {
     private float x;
     private float y;
