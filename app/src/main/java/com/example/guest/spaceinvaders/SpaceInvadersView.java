@@ -3,16 +3,22 @@ package com.example.guest.spaceinvaders;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -79,7 +85,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
     private int score = 0;
 
     // Lives
-    private int lives = 3;
+    private int lives = 10;
 
     // How menacing should the sound be?
     private long menaceInterval = 1000;
@@ -162,8 +168,8 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
         // Build an army of invaders
         numInvaders = 0;
-        for(int column = 0; column < 6; column ++ ){
-            for(int row = 0; row < 5; row ++ ){
+        for(int column = 0; column < 5; column ++ ){
+            for(int row = 0; row < 4; row ++ ){
                 invaders[numInvaders] = new Invader(context, row, column, screenX, screenY);
                 numInvaders ++;
             }
@@ -413,12 +419,16 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
             // Draw the background color
             canvas.drawColor(Color.argb(255, 26, 128, 182));
+//            Resources res = getResources();
+//            Bitmap bitmap = BitmapFactory.decodeResource(res, R.drawable.background);
+//            canvas.drawBitmap(bitmap, 0, 0, paint);
+
 
             // Choose the brush color for drawing
             paint.setColor(Color.argb(255,  255, 255, 255));
 
             // Now draw the player spaceship
-            canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 210, paint);
+            canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 110, paint);
 
             // Draw the invaders
             for(int i = 0; i < numInvaders; i++){
@@ -498,8 +508,14 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
                 if(motionEvent.getY() > screenY - screenY / 8) {
                     if (motionEvent.getX() > screenX / 2) {
                         playerShip.setMovementState(playerShip.RIGHT);
+//                        if (playerShip.getX() < 1116.6749){
+//                            playerShip.setMovementState(playerShip.LEFT);
+//                        }
                     } else {
                         playerShip.setMovementState(playerShip.LEFT);
+//                        if (playerShip.getX() < -26.160135){
+//                            playerShip.setMovementState(playerShip.RIGHT);
+//                        }
                     }
 
                 }

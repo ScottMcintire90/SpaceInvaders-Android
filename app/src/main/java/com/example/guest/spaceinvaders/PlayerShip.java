@@ -39,7 +39,7 @@ public class PlayerShip {
         rect = new RectF();
 
         length = screenX/10;
-        height = screenY/5;
+        height = screenY/6;
 
         // Start ship in roughly the screen centre
         x = screenX / 3;
@@ -97,8 +97,4 @@ public class PlayerShip {
         rect.right = x + length;
 
     }
-
-
-
-
 }

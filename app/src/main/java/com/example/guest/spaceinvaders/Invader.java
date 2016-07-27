@@ -43,12 +43,12 @@ public class Invader {
         // Initialize a blank RectF
         rect = new RectF();
 
-        length = screenX / 20;
-        height = screenY / 20;
+        length = screenX / 17;
+        height = screenY / 17;
 
         isVisible = true;
 
-        int padding = screenX / 25;
+        int padding = screenX / 22;
 
         x = column * (length + padding);
         y = row * (length + padding/4);
@@ -70,7 +70,7 @@ public class Invader {
                 false);
 
         // How fast is the invader in pixels per second
-        shipSpeed = 40;
+        shipSpeed = 50;
     }
 
     public void setInvisible(){
@@ -139,7 +139,7 @@ public class Invader {
         int randomNumber = -1;
 
         // If near the player
-        if((playerShipX + playerShipLength > x && playerShipX + playerShipLength < x + length) ||             (playerShipX > x && playerShipX < x + length)) {
+        if((playerShipX + playerShipLength > x && playerShipX + playerShipLength < x + length) || (playerShipX > x && playerShipX < x + length)) {
 
             // A 1 in 500 chance to shoot
             randomNumber = generator.nextInt(150);
