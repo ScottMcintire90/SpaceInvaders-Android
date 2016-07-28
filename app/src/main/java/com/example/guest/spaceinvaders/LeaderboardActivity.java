@@ -55,19 +55,25 @@ public class LeaderboardActivity extends AppCompatActivity {
                     score.setUser(ds.getValue(Score.class).getUser());
                     scores.add(score);
 
-                        for (int i = 0; i < scores.size(); i++) {
-                            int highScore1 = Integer.parseInt(scores.get(i).getScore());
+                    int j = scores.size();
 
-                            for (int k = i + 1; k < scores.size(); k++) {
-                                int highScore2 = Integer.parseInt(scores.get(k).getScore());
-                                if (highScore1 < highScore2) {
-                                    Score lowerScore = scores.get(i);
-                                    scores.remove(i);
-                                    scores.add(lowerScore);
+                    while(j>0) {
+                    for (int i = 0; i < scores.size(); i++) {
+                        int highScore1 = Integer.parseInt(scores.get(i).getScore());
 
-                                }
+                        for (int k = i + 1; k < scores.size(); k++) {
+                            int highScore2 = Integer.parseInt(scores.get(k).getScore());
+                            if (highScore1 < highScore2) {
+                                Score lowerScore = scores.get(i);
+                                scores.remove(i);
+                                scores.add(lowerScore);
+
                             }
                         }
+                    }
+                        j--;
+                }
+
                     }
                 renderScore(scores);
             }
