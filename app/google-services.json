@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "668380281429",
+    "firebase_url": "https://pokemon-spaceinvaders.firebaseio.com",
+    "project_id": "pokemon-spaceinvaders",
+    "storage_bucket": "pokemon-spaceinvaders.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668380281429:android:18c70fc37930de4e",
+        "android_client_info": {
+          "package_name": "com.example.guest.spaceinvaders"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668380281429-vupg1afk7hu75krogpi7htk6ubt6ktu0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guest.spaceinvaders",
+            "certificate_hash": "48990D951B6E1E0EAA40D664AB26AF4BA7FFEB04"
+          }
+        },
+        {
+          "client_id": "668380281429-9ffgj89f0shf3p6d6if1ismcarmijnf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsaAQILJKPwjnOfkIBVwk0zlRtMH82ukc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "668380281429-9ffgj89f0shf3p6d6if1ismcarmijnf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

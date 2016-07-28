@@ -1,6 +1,8 @@
 package com.example.guest.spaceinvaders;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -89,7 +91,7 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
     private int score = 0;
 
     // Lives
-    private int lives = 10;
+    private int lives = 3;
 
     // How menacing should the sound be?
     private long menaceInterval = 1000;
@@ -338,6 +340,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
             }
         }
 
+
+
+
         // Has the player's bullet hit an invader
         if(bullet.getStatus()) {
             for (int i = 0; i < numInvaders; i++) {
@@ -352,60 +357,15 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
 
                             if (score == numInvaders * 10) {
                                 paused = true;
-                                score = 0;
-                                lives = 3;
-                                prepareLevel();
+                                String mScore = score + "";
+                                Log.d("Score: ", mScore);
+                                Context context = getContext();
+                                Intent intent = new Intent(context, ScoreActivity.class);
+                                intent.putExtra("score", mScore);
+                                context.startActivity(intent);
                             }
-//                        if(playerWin == score) {
-//                            @Override
-//                            protected void onCreate(Bundle savedInstanceState) {
-//                                super.onCreate(savedInstanceState);
-//                                setContentView(R.layout.activity_saved_card);
-//                                ButterKnife.bind(this);
-//                                getTerms();
-//                            }
-//
-//                            private void getTerms() {
-//                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//                                String uid = user.getUid();
-//
-//
-//                                mCardReference = FirebaseDatabase.getInstance().getReference("cards");
-//                                Query queryRef = mCardReference.child(uid);
-//                                queryRef.addChildEventListener(new ChildEventListener() {
-//                                    @Override
-//                                    public void onChildAdded(DataSnapshot snapshot, String previousChild) {
-//                                        Log.d(TAG, "onChildAdded: " + snapshot.getValue(FlashCard.class).getTerm());
-//                                        mCards.add(snapshot.getValue(FlashCard.class));
-//                                        setAdapter();
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-//                                        mCards.remove(dataSnapshot.getValue(FlashCard.class));
-//                                        setAdapter();
-//                                    }
-//
-//                                    @Override
-//                                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onCancelled(DatabaseError databaseError) {
-//
-//
-//                                    }
-//                                });
-//                            }
-//
-//                        }
+
+
                     }
                 }
             }
@@ -453,9 +413,15 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
                     // Is it game over?
                     if(lives == 0){
                         paused = true;
-                        lives = 3;
-                        score = 0;
-                        prepareLevel();
+//                        lives = 3;
+//                        score = 0;
+                        String mScore = score + "";
+                        Context context = getContext();
+                        Intent intent = new Intent(context, ScoreActivity.class);
+                        intent.putExtra("score", mScore);
+                        context.startActivity(intent);
+
+//                        prepareLevel();
 
                     }
                 }

@@ -11,8 +11,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Bind(R.id.aboutButton)
-    Button mAboutButton;
+    @Bind(R.id.aboutButton) Button mAboutButton;
     @Bind(R.id.leaderBoardButton) Button mLeaderBoardButton;
     @Bind(R.id.newGameButton) Button mNewGameButton;
 

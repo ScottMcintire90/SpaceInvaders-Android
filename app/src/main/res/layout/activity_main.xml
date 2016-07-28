@@ -10,13 +10,11 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="-50dp"
-        android:layout_marginBottom="60dp"
         android:id="@+id/imageView"
         android:src="@drawable/pikaspace"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,8 +25,9 @@
         android:textColor="#FFF"
         android:textSize="38sp"
         android:textStyle="normal|bold"
-        android:layout_below="@+id/imageView"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,33 +38,24 @@
         android:textColor="#FFF"
         android:textSize="38sp"
         android:textStyle="bold"
-        android:layout_below="@+id/newGameButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"
         android:id="@+id/aboutButton"
-        android:layout_below="@+id/leaderBoardButton"
-        android:layout_centerHorizontal="true"
         android:textStyle="normal|bold"
         android:textSize="38sp"
         android:background="#00ffffff"
-        android:textColor="#FFF" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:id="@+id/loginButton"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_centerHorizontal="true"
-        android:background="#00ffffff"
         android:textColor="#FFF"
-        android:textStyle="normal|bold"
-        android:textSize="25sp" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/newGameButton"
+        android:layout_toEndOf="@+id/newGameButton" />
 
 
 </RelativeLayout>
