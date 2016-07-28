@@ -16,6 +16,8 @@ import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,7 +38,6 @@ public class LeaderboardActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
 
         ButterKnife.bind(this);
-
         getScores();
     }
 
@@ -53,7 +54,21 @@ public class LeaderboardActivity extends AppCompatActivity {
                     score.setScore(ds.getValue(Score.class).getScore());
                     score.setUser(ds.getValue(Score.class).getUser());
                     scores.add(score);
-                }
+
+                        for (int i = 0; i < scores.size(); i++) {
+                            int highScore1 = Integer.parseInt(scores.get(i).getScore());
+
+                            for (int k = i + 1; k < scores.size(); k++) {
+                                int highScore2 = Integer.parseInt(scores.get(k).getScore());
+                                if (highScore1 < highScore2) {
+                                    Score lowerScore = scores.get(i);
+                                    scores.remove(i);
+                                    scores.add(lowerScore);
+
+                                }
+                            }
+                        }
+                    }
                 renderScore(scores);
             }
 
