@@ -20,7 +20,11 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.io.IOException;
+
+import butterknife.ButterKnife;
 
 public class SpaceInvadersView extends SurfaceView implements Runnable{
 
@@ -310,13 +314,11 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
                 if(invaders[i].getY() > screenY - screenY / 10){
                     lost = true;
                 }
-
             }
 
             // Increase the menace level
             // By making the sounds more frequent
             menaceInterval = menaceInterval - 80;
-
         }
 
         if(lost){
@@ -347,12 +349,63 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
                         score = score + 10;
 
                         // Has the player won
-                        if(score == numInvaders * 10){
-                            paused = true;
-                            score = 0;
-                            lives = 3;
-                            prepareLevel();
-                        }
+
+                            if (score == numInvaders * 10) {
+                                paused = true;
+                                score = 0;
+                                lives = 3;
+                                prepareLevel();
+                            }
+//                        if(playerWin == score) {
+//                            @Override
+//                            protected void onCreate(Bundle savedInstanceState) {
+//                                super.onCreate(savedInstanceState);
+//                                setContentView(R.layout.activity_saved_card);
+//                                ButterKnife.bind(this);
+//                                getTerms();
+//                            }
+//
+//                            private void getTerms() {
+//                                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//                                String uid = user.getUid();
+//
+//
+//                                mCardReference = FirebaseDatabase.getInstance().getReference("cards");
+//                                Query queryRef = mCardReference.child(uid);
+//                                queryRef.addChildEventListener(new ChildEventListener() {
+//                                    @Override
+//                                    public void onChildAdded(DataSnapshot snapshot, String previousChild) {
+//                                        Log.d(TAG, "onChildAdded: " + snapshot.getValue(FlashCard.class).getTerm());
+//                                        mCards.add(snapshot.getValue(FlashCard.class));
+//                                        setAdapter();
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+//                                        mCards.remove(dataSnapshot.getValue(FlashCard.class));
+//                                        setAdapter();
+//                                    }
+//
+//                                    @Override
+//                                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onCancelled(DatabaseError databaseError) {
+//
+//
+//                                    }
+//                                });
+//                            }
+//
+//                        }
                     }
                 }
             }
@@ -508,9 +561,9 @@ public class SpaceInvadersView extends SurfaceView implements Runnable{
                 if(motionEvent.getY() > screenY - screenY / 8) {
                     if (motionEvent.getX() > screenX / 2) {
                         playerShip.setMovementState(playerShip.RIGHT);
-//                        if (playerShip.getX() < 1116.6749){
-//                            playerShip.setMovementState(playerShip.LEFT);
-//                        }
+                        if (playerShip.getX() <= 1116.6749){
+                            canvas.drawBitmap(playerShip.getBitmap(), playerShip.getX(), screenY - 110, paint);
+                        }
                     } else {
                         playerShip.setMovementState(playerShip.LEFT);
 //                        if (playerShip.getX() < -26.160135){
