@@ -45,7 +45,7 @@ public class ScoreActivity extends AppCompatActivity implements View.OnClickList
             mUserName = userName.getText().toString();
             Firebase scoreRef = ref.child("scores");
             Score highScore = new Score(score, mUserName);
-            scoreRef.setValue(highScore);
+            scoreRef.push().setValue(highScore);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
          }

@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         }
-////        if(v == mLeaderBoardButton){
-////            Intent goToLeaderBoard = new Intent(MainActivity.this, );
-////            startActivity(goToLeaderBoard);
-//        }
+        if(v == mLeaderBoardButton){
+            Intent goToLeaderBoard = new Intent(MainActivity.this, LeaderboardActivity.class);
+            startActivity(goToLeaderBoard);
+        }
         if(v == mNewGameButton){
             Intent goToNewGame = new Intent(MainActivity.this,SpaceInvadersActivity.class);
             startActivity(goToNewGame);

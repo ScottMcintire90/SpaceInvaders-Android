@@ -1,8 +1,13 @@
 package com.example.guest.spaceinvaders;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import org.parceler.Parcel;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Parcel
 public class Score {
-    private String mScore;
-    private String mUser;
+    String mScore;
+    String mUser;
 
     public Score() {}
 
@@ -19,4 +24,6 @@ public class Score {
         return mScore;
     }
 
+    public void setUser(String user){this.mUser = mUser;}
+    public void setScore(String score){this.mScore = mScore;}
 }
