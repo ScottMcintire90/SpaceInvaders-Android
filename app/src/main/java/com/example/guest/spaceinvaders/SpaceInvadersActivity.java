@@ -5,9 +5,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.view.Display;
 
-// SpaceInvadersActivity is the entry point to the game.
-// It will handle the lifecycle of the game by calling
-// methods of spaceInvadersView when prompted to so by the OS.
+
 public class SpaceInvadersActivity extends Activity {
 
     // spaceInvadersView will be the view of the game
